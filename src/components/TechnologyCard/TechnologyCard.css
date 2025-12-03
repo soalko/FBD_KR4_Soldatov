@@ -1,0 +1,149 @@
+.technology-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Цветовые стили для разных статусов */
+.technology-card.completed {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(76, 175, 80, 0.04) 100%);
+    border-left: 4px solid #4caf50;
+}
+
+.technology-card.in-progress {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.08) 0%, rgba(33, 150, 243, 0.04) 100%);
+    border-left: 4px solid #2196f3;
+}
+
+.technology-card.not-started {
+    background: linear-gradient(135deg, rgba(158, 158, 158, 0.08) 0%, rgba(158, 158, 158, 0.04) 100%);
+    border-left: 4px solid #9e9e9e;
+}
+
+/* Анимации */
+@keyframes statusChange {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.status-change-animation {
+    animation: statusChange 0.5s ease-in-out;
+}
+
+/* Стили для прогресс-бара */
+.technology-card .MuiLinearProgress-root {
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.technology-card.completed .MuiLinearProgress-bar {
+    background-color: #4caf50;
+}
+
+.technology-card.in-progress .MuiLinearProgress-bar {
+    background-color: #2196f3;
+}
+
+.technology-card.not-started .MuiLinearProgress-bar {
+    background-color: #9e9e9e;
+}
+
+/* Стили для чипов */
+.technology-card .MuiChip-root {
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.technology-card.completed .MuiChip-root {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2e7d32;
+}
+
+.technology-card.in-progress .MuiChip-root {
+    background-color: rgba(33, 150, 243, 0.15);
+    color: #1976d2;
+}
+
+.technology-card.not-started .MuiChip-root {
+    background-color: rgba(158, 158, 158, 0.15);
+    color: #616161;
+}
+
+/* Эффект при наведении */
+.technology-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.technology-card.completed:hover {
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+.technology-card.in-progress:hover {
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.2);
+}
+
+.technology-card.not-started:hover {
+    box-shadow: 0 8px 25px rgba(158, 158, 158, 0.2);
+}
+
+/* Стили для выбранных карточек */
+.technology-card.selected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1976d2, #2196f3);
+    border-radius: 12px 12px 0 0;
+}
+
+/* Стили для приоритетных карточек */
+.technology-card.priority::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    background: #ff9800;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
+    }
+}
+
+/* Адаптивные стили */
+@media (max-width: 600px) {
+    .technology-card {
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+
+    .technology-card:hover {
+        transform: translateY(-1px);
+    }
+}
