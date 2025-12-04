@@ -121,13 +121,6 @@ const QuickActions = ({
                     >
                         Сбросить все
                     </Button>
-                    <Button
-                        startIcon={<Shuffle />}
-                        onClick={handleRandomSelect}
-                        aria-label="Случайный выбор следующей технологии"
-                    >
-                        Случайный выбор
-                    </Button>
                 </ButtonGroup>
 
                 <Box display="flex" gap={2}>
